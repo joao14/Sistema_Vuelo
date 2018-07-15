@@ -1,0 +1,169 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 24, 2015, 3:05:56 PM
+    Author     : Programacion
+*/
+body{
+    width: 100%;
+}
+
+
+#cuerpo{
+    width: 300px;
+    margin: 0 auto;
+    position: initial;
+}
+
+#contenedor{         
+    //background-image: url('paneles/fondoazul3.jpg');
+    background-color: white;
+    background-repeat: repeat-y;  
+    background-position: 0px;  
+    width: 1000px;
+    height: 450px;   
+    alignment-adjust: central;
+    text-align: center;
+    font-family: serif;
+
+}
+
+#contenedorlogeo{           
+    background-image: url('fondo/fundo-verde-bg.jpg');
+    //background-color: white;
+    -webkit-background-size: cover;           /* Safari 3.0 */
+    -moz-background-size: cover;           /* Gecko 1.9.2 (Firefox 3.6) */
+    -o-background-size: cover;           /* Opera 9.5 */
+    background-size: cover;           /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+    background-position: center center; 
+    background-repeat: repeat;   
+    width: 1000px;
+    height: 400px;   
+    alignment-adjust: central;
+    text-align: center;
+    font-family: serif;     
+    font-size: 15px;  
+}  
+
+
+#contenedorconsulta{         
+    background-image: url('fondo/fundo-verde-bg.jpg');    
+    -webkit-background-size: cover;           /* Safari 3.0 */
+    -moz-background-size: cover;           /* Gecko 1.9.2 (Firefox 3.6) */
+    -o-background-size: cover;           /* Opera 9.5 */
+    background-size: cover;           /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+    background-position: center center; 
+    width: 1000px;
+    alignment-adjust: central;
+    text-align: left;
+
+}
+
+#cabecera{         
+    background-image: url('imagenes/aviones.jpg');      
+    -webkit-background-size: cover;           /* Safari 3.0 */
+    -moz-background-size: cover;           /* Gecko 1.9.2 (Firefox 3.6) */
+    -o-background-size: cover;           /* Opera 9.5 */
+    background-size: cover;           /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+    background-position: center center; 
+    width: 1000px;
+    height: 210px; 
+    alignment-adjust: central;
+    text-align: center;
+
+}
+
+#piepagina{         
+    background-image: url('imagenes/FondoPie.png');    
+    -webkit-background-size: cover;           /* Safari 3.0 */
+    -moz-background-size: cover;           /* Gecko 1.9.2 (Firefox 3.6) */
+    -o-background-size: cover;           /* Opera 9.5 */
+    background-size: cover;           /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+    background-position: center center; 
+    width: 1000px;
+    height: 50px; 
+    alignment-adjust: central;
+    text-align: left;
+
+}
+
+.clickAll{
+    display:block;
+}
+
+.sms1{
+    color: #1682ba;
+    font-family: sans-serif;
+    font-size: 20px !important;
+    font-weight: 900;
+
+}
+
+.sms2{
+    color: #222222;
+    font-family: sans-serif;
+    font-size: 18px !important;
+}
+
+// css para titulos del Stock Master
+.titulowelcome{
+    color: #222222;
+    font-family: sans-serif;
+    font-size: 80px;
+}
+
+.hipervinculo{
+    color: #1682ba;
+    font-size: 20px !important;
+    font-weight: bold;
+    font-family: sans-serif;
+
+
+}
+.mensajeAndes{
+    font-size: 12px !important;
+    font-weight: bold;
+    font-family: sans-serif;
+
+}
+//CSS para imagenes de estilo
+/*.img{
+    border: 5px solid #ccc;
+    float:left;
+    margin: 15px;
+    -webkit-transition:margin 0.5s ease-out;
+    -moz-transition: margin 0.5s ease-out;
+    -ms-transition:margin 0.5s ease-out;
+    transition:margin 0.5s ease-out;
+}
+.ex1 img:hover{
+    margin-top:2px;
+}*/
+
+#container {
+    width: 250px;
+    margin: 0 auto;
+}
+.ex1 img{
+    height: 100px;
+    width: 250px;
+    margin: 15px 0;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.ex1 img:hover {
+    height: 150px;
+    width: 300px;
+    margin-left: 10px;
+}
+
+.mensajemantenimiento{
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"   
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <h:outputStylesheet name="css/Paneles.css"/> 
+        <h:outputStylesheet name="css/Pagina.css"/> 
+        <title>Automatizacion de Requerimientos</title>
+    </h:head>
+    <h:body>
+        <center>                     
+            <p:panel id="cabecera">                              
+            </p:panel>
+
+        </center>  
+        <center>               
+            <p:panel id="contenedor">
+                <h:form id="formulario">
+                    <p:messages id="msgs2" showDetail="true" autoUpdate="true" closable="true" styleClass="alertas" ></p:messages>
+                    <div align="right">
+                        <h:commandLink value="Ingreso" action="/consulta.xhtml?faces-redirect=true" />
+                    </div>
+                    <br></br>
+                    <h1>Solicitud de Vuelos</h1>
+                    <center>  
+                        <p:panelGrid columns="2">  
+                            <f:facet name="header">
+                                <h:outputText value="Ingreso de la Solicitud:" />
+                            </f:facet>
+
+                            <h:outputLabel value="Nombre Solicitante :" for="nombre"></h:outputLabel>
+                            <h:inputText id="nombre" value="#{solicitud.nombre}" ></h:inputText>
+
+                            <h:outputLabel for="fecha" value="Fecha de Viaje:" />
+                            <p:calendar id="fecha"  value="#{solicitud.fecha}" pattern="yyyy-MM-dd" showOn="button"  mask="true"
+                                        mindate="#{solicitud.fecha_min}" locale="de" navigator="true" title="Fecha" style="font-size: 12px;" >  
+
+                            </p:calendar>
+
+                            <p:outputLabel for="destino"  value="Destino :" />
+                            <p:selectOneMenu id="destino" value="#{solicitud.destino}" style="width:150px" >
+                                <f:selectItem itemLabel="Seleccione Opcion" itemValue=""  />    
+                                <f:selectItems value="#{solicitud.menuDestino}" />     
+                            </p:selectOneMenu>             
+
+                            <p:commandButton id="uno" value="Registrar" title="Registrar" actionListener="#{solicitud.actionEvent()}" icon="ui-icon-search"></p:commandButton>  
+                            <p:commandButton id="dos" value="Nuevo" title="Limpiar"  icon="ui-icon-script" actionListener="#{solicitud.cleanData()}" update="formulario"></p:commandButton>                        
+
+                        </p:panelGrid>   
+                    </center>
+                </h:form>
+            </p:panel></center>  
+        <center><p:panel id="piepagina"></p:panel></center>
+    </h:body>
+</html>
+

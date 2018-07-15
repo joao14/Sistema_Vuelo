@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>  
+        <h:outputStylesheet name="css/Paneles.css"/> 
+        <h:outputStylesheet name="css/Pagina.css"/>   
+        <title>Consulta de actividades</title>
+        <style type="text/css">
+            .btn{
+                background-color: #1682ba;
+                color: white;
+            }
+        </style>
+    </h:head>   
+    <h:body>
+
+        <center>                       
+            <p:panel id="cabecera">                              
+            </p:panel>
+
+        </center>  
+        <center>               
+            <p:panel id="contenedor">
+
+                <h:form id="form">
+                    <p:messages id="msgs2" showDetail="true" autoUpdate="true" closable="true" styleClass="alertas" ></p:messages>
+                    <div align="right">  
+                        <h:commandLink value="Salir" action="/index.xhtml?faces-redirect=true" immediate="true"  />
+                    </div>
+                    <br></br>
+                    <h1>Asignación de pasajeros</h1>
+
+                    <div style="text-align: left">
+                        <p:commandButton id="consultar" value="Consultar" title="Consulta" 
+                                         action="#{consulta.Consultar()}" icon="ui-icon-search" 
+                                         update="tablaSD msgs2" styleClass="btn" ></p:commandButton>  
+                        &#160;
+                        <p:commandButton id="resetear" value="Nuevo" title="Nueva" icon="ui-icon-script" class="btn" 
+                                         actionListener="#{consulta.cleanData()}" update="filtros">                        
+                        </p:commandButton> 
+                    </div>
+
+                    <hr></hr>
+                    <div style="text-align: center"> 
+                        <h:panelGrid id="filtros" columns="6" style="width: 100%">     
+
+                            <h:outputLabel for="fechaI" value="Fecha Inicio:" />
+                            <p:calendar id="fechaI"  value="#{consulta.fechaI}" pattern="yyyy-MM-dd" showOn="button"  mask="true"
+                                        required="true" requiredMessage="Debe ingresar una fecha inicial"
+                                        mindate="#{consulta.fecha_min}" locale="de" navigator="true" title="Fecha" style="font-size: 12px;" >  
+
+                            </p:calendar>
+
+                            <h:outputLabel for="fechaF" value="Fecha Fin :" />   
+                            <p:calendar id="fechaF"  value="#{consulta.fechaf}" pattern="yyyy-MM-dd" showOn="button"  mask="true"
+                                        required="true" requiredMessage="Debe ingresar una fecha final"
+                                        mindate="#{cosulta.fecha_min}" locale="de" navigator="true" title="Fecha" style="font-size: 12px;" >  
+
+                            </p:calendar>
+
+                            <p:outputLabel for="destino"  value="Destino :" />
+                            <p:selectOneMenu id="destino" value="#{consulta.destino}" style="width:150px" >
+                                <f:selectItem itemLabel="Seleccione Opcion" itemValue=""  />       
+                                <f:selectItems value="#{consulta.menuDestino}" />     
+                            </p:selectOneMenu> 
+
+                        </h:panelGrid> 
+                    </div>
+                    <br></br>
+                    <hr></hr>
+                    <center>
+                        <p:dataTable id="tablaSD" var="dato" value="#{consulta.lista}"    
+                                     draggableRows="true"                                  
+                                     rows="10"  
+                                     paginator="true"  
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     rowsPerPageTemplate="5,10,15" 
+                                     scrollable="true" scrollHeight="150" 
+                                     emptyMessage="No se encontraron datos en la busqueda" >
+                            <p:ajax event="rowReorder" />
+                            <f:facet name="header">
+                                .:: Listado de viajes ::. 
+                            </f:facet>
+
+                            <p:column headerText="Nombres">  
+                                <h:outputText value="#{dato.nombre}" />                   
+                            </p:column>   
+
+                            <p:column headerText="Fecha de Viaje">  
+                                <h:outputText value="#{dato.fecha}" />                    
+                            </p:column>
+
+                            <p:column headerText="Destino">
+                                <h:outputText value="#{dato.destino}" />
+                            </p:column>
+
+                            <p:column headerText="Fecha Solcitud">
+                                <h:outputText value="#{dato.fechas}" />
+
+                            </p:column>
+                            <p:column headerText="Hora Solicitud">
+                                <h:outputText value="#{dato.horas}" />                   
+                            </p:column> 
+
+                            <p:column headerText="Estado">
+                                <h:outputText value="#{dato.estado}" />                   
+                            </p:column>
+                            <p:column headerText="Accion">                                
+                                <p:commandButton update="tablaSD"  icon="ui-icon-pencil" action="#{consulta.actualizarR(dato.id)}" title="Guardar">                                        
+                                </p:commandButton>
+
+                            </p:column>
+                        </p:dataTable>                          
+
+                    </center>
+                </h:form>
+            </p:panel>
+        </center>
+        <br/>
+        <center>
+            <p:panel id="piepagina"></p:panel>
+        </center>
+    </h:body>
+</html>
+
